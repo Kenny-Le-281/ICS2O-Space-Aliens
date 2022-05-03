@@ -60,6 +60,9 @@ class TitleScene extends Phaser.Scene {
    * This method is the update.
    */
   update(time, delta) {
+    if (time > 6000) {
+      this.scene.switch("menuScene")
+    }
     // pass
   }
 }
