@@ -9,7 +9,7 @@
 /**
  * This class is the Menu Scene.
  */
- class GameScene extends Phaser.Scene {
+class GameScene extends Phaser.Scene {
   /**
    * This method is the construtor.
    */
@@ -39,7 +39,7 @@
     this.load.image("ship", "assets/spaceShip.png")
     this.load.image("missile", "assets/missile.png")
     // sound
-    this.load.audio('laser', 'assets/laser1.wav')
+    this.load.audio("laser", "assets/laser1.wav")
   }
 
   /**
@@ -84,9 +84,13 @@
       if (this.fireMissile === false) {
         // fire missile
         this.fireMissile = true
-        const aNewMissile = this.physics.add.sprite(this.ship.x, this.ship.y, 'missile')
+        const aNewMissile = this.physics.add.sprite(
+          this.ship.x,
+          this.ship.y,
+          "missile"
+        )
         this.missileGroup.add(aNewMissile)
-        this.sound.play('laser')
+        this.sound.play("laser")
       }
     }
 
