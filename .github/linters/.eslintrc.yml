@@ -28,19 +28,6 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
 
-###########
-# Extends #
-###########
-extends:
-  - "prettier"
-
-###########
-# Plugins #
-###########
-plugins:
-  - "@typescript-eslint"
-  - "prettier"
-
 #########
 # Rules #
 #########
