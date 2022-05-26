@@ -32,6 +32,9 @@ class GameScene extends Phaser.Scene {
     this.background = null
     this.ship = null
     this.firMissile = false
+    this score = 0
+    this.scoreText = null
+    this.scoreTextStyle = { font: '65px Arial', fill: '#ffffff', align: 'center' }
   }
 
   /**
@@ -64,6 +67,8 @@ class GameScene extends Phaser.Scene {
     this.background = this.add.image(0, 0, "starBackground").setScale(2.0)
     this.background.setOrigin(0, 0)
 
+    this.scoreText = this.add.text(10, 10, 'Score: ' + this.score.toString(), this.scoreTextStyle)
+
     this.ship = this.physics.add.sprite(1920 / 2, 1080 - 100, "ship")
 
     // create a group for the missiles
@@ -74,17 +79,15 @@ class GameScene extends Phaser.Scene {
     this.createAlien()
 
     // Collisions between missiles and aliens
-    this.physics.add.collider(
-      this.missileGroup,
-      this.alienGroup,
-      function (missileCollide, alienCollide) {
-        alienCollide.destroy()
-        missileCollide.destroy()
-        this.sound.play("explosion")
-        this.createAlien()
-        this.createAlien()
-      }.bind(this)
-    )
+    this.physics.add.collider(this.missileGroup, this.alienGroup, function (missileCollide, alienCollide){
+      alienCollide.destroy()
+      missileCollide.destroy()
+      this.sound.play('explosion')
+      this.score = this.score + 1
+      this.scoreText.setText('Score: ' + this.score.toString())
+      this.createAlien()
+      this.createAlien()
+    }.bind(this))
   }
 
   /**
