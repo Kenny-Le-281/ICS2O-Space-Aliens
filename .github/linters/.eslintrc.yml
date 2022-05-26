@@ -27,25 +27,3 @@ parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
-
-#########
-# Rules #
-#########
-rules:
-  {
-    "prettier/prettier": "error",
-    "require-jsdoc":
-      [
-        "error",
-        {
-          "require":
-            {
-              "FunctionDeclaration": true,
-              "MethodDefinition": true,
-              "ClassDeclaration": true,
-              "ArrowFunctionExpression": true,
-              "FunctionExpression": true,
-            },
-        },
-      ],
-  }
