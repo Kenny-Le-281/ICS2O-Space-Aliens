@@ -149,6 +149,13 @@ class GameScene extends Phaser.Scene {
       this.fireMissile = false
     }
 
+      this.alienGroup.children.each(function (item) {
+      if (item.y > 1080) {
+        item.x = Math.floor(Math.random() * 1920) + 1
+        item.y = 0
+      }
+    })
+    
     this.missileGroup.children.each(function (item) {
       item.y = item.y - 15
       if (item.y < 0) {
