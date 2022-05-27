@@ -150,9 +150,14 @@ class GameScene extends Phaser.Scene {
     }
 
       this.alienGroup.children.each(function (item) {
-      if (item.y > 1080) {
-        item.x = Math.floor(Math.random() * 1920) + 1
-        item.y = 0
+        if (item.y > 1080) {
+          item =  Math.floor(Math.random() * 2) + 1
+        if (item == 2) {
+          item.x = Math.floor(Math.random() * 1920) + 1
+          item.y = -100         
+        } else {
+          item.destroy() 
+        }
       }
     })
     
